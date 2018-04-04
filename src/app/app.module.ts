@@ -8,6 +8,7 @@ import { AcessoComponent } from './acesso/acesso.component';
 import { TopoComponent } from './topo/topo.component';
 import { LoginComponent } from './acesso/login/login.component';
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.compo
     TopoComponent,
     LoginComponent,
     CadastroEventoComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

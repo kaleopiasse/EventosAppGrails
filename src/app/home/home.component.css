@@ -1,0 +1,6 @@
+.container-fluid{
+    padding-top: 80px;
+}
+.card-footer, .card-body{
+    padding: 0.50em;
+}
