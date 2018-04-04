@@ -1,0 +1,26 @@
+{ 
+	"eventos": [
+		{
+			"id": 1,
+			"titulo": "Curso de Angular",
+			"descricao": "Mini curso para introduzir alunos no framework da Google",
+            "user": "Original Burger",
+            "hora_inicio": "17:30",
+            "hora_fim":"18:30",
+            "data": "01/03/18",
+			"destaque": true,
+			"imagem":{"url": "/assets/ofertas/1/img1.jpg"}
+        },
+        {
+			"id": 2,
+			"titulo": "SC-Con experience",
+			"descricao": "Primeiro encontro de fãs de HQ's, Super-Hérois, Animes e etc, em São Carlos",
+            "user": "Original Burger",
+            "hora_inicio": "17:30",
+            "hora_fim":"18:30",
+            "data": "01/03/18",
+			"destaque": true,
+			"imagem":{"url": "/assets/ofertas/1/img1.jpg"}
+		}
+	]
+}
