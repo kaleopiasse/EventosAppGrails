@@ -5,7 +5,6 @@ export class Evento{
     public user: string
     public horaInicio: any
     public horaFim: any
-    public data: Date
+    public data: string
     public destaque: boolean
-    public imagem: any
 }

@@ -8,59 +8,22 @@
   <hr />
 
   <div class="row" style="margin-bottom: 50px;">
-    <div class="col-sm-4">
+    <div class="col-sm-4" *ngFor="let evento of eventos">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Curso de angular</h4>
-          <p class="card-text">Mini curso para introduzir alunos no framework da Google</p>
+          <h4 class="card-title">{{evento.titulo}}</h4>
+          <p class="card-text">{{evento.descricao}}</p>
 
         </div>
         <div class="card-footer">
-          <p class="text-muted">Data: 01/03/18</p>
-          <p class="text-muted">Horario: 17:30 ás 18:30</p>
+          <p class="text-muted">Data: {{evento.data}}</p>
+          <p class="text-muted">Horario: {{evento.horaInicio}} ás {{evento.horaFim}}</p>
           <div class="d-flex justify-content-end align-text-top">
             <a href="#" class="btn btn-secondary btn-sm">Edit</a>
           </div>
         </div>
       </div>
     </div>
-
-    <hr />
-
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Curso de angular</h4>
-          <p class="card-text">Mini curso para introduzir alunos no framework da Google</p>
-        </div>
-        <div class="card-footer">
-          <p class="text-muted">Data: 01/03/18</p>
-          <p class="text-muted">Horario: 17:30 ás 18:30</p>
-          <div class="d-flex justify-content-end align-text-top">
-            <a href="#" class="btn btn-secondary btn-sm">Edit</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <hr />
-
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Curso de angular</h4>
-          <p class="card-text">Mini curso para introduzir alunos no framework da Google</p>
-        </div>
-        <div class="card-footer">
-          <p class="text-muted">Data: 01/03/18</p>
-          <p class="text-muted">Horario: 17:30 ás 18:30</p>
-          <div class="d-flex justify-content-end align-text-top">
-            <a href="#" class="btn btn-secondary btn-sm">Edit</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <hr />
   </div>
 </div>

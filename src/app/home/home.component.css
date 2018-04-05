@@ -4,3 +4,7 @@
 .card-footer, .card-body{
     padding: 0.50em;
 }
+
+.card{
+    margin-top: 0.50em; 
+}

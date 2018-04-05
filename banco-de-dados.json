@@ -5,22 +5,40 @@
 			"titulo": "Curso de Angular",
 			"descricao": "Mini curso para introduzir alunos no framework da Google",
             "user": "Original Burger",
-            "hora_inicio": "17:30",
-            "hora_fim":"18:30",
+            "horaInicio": "17:30",
+            "horaFim":"18:30",
             "data": "01/03/18",
-			"destaque": true,
-			"imagem":{"url": "/assets/ofertas/1/img1.jpg"}
+			"destaque": true
         },
         {
 			"id": 2,
 			"titulo": "SC-Con experience",
 			"descricao": "Primeiro encontro de fãs de HQ's, Super-Hérois, Animes e etc, em São Carlos",
             "user": "Original Burger",
-            "hora_inicio": "17:30",
-            "hora_fim":"18:30",
-            "data": "01/03/18",
-			"destaque": true,
-			"imagem":{"url": "/assets/ofertas/1/img1.jpg"}
+            "horaInicio": "17:30",
+            "horaFim":"18:30",
+            "data": "02/05/18",
+			"destaque": true
+		},
+		{
+			"id": 3,
+			"titulo": "Churras de férias",
+			"descricao":"Confraternização de férias de inverno",
+            "user": "Original Burger",
+            "horaInicio": "13:30",
+            "horaFim":"15:30",
+            "data": "31/06/18",
+			"destaque": true
+		},
+		{
+			"id": 4,
+			"titulo": "Curso de Node",
+			"descricao": "Mini curso sobre as novidades na nova versão do framework Node.js",
+            "user": "Original Burger",
+            "horaInicio": "17:30",
+            "horaFim":"18:30",
+            "data": "18/07/18",
+			"destaque": true
 		}
 	]
 }
