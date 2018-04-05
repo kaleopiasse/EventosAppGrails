@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router'
 
-import {LoginComponent} from './acesso/login/login.component'
+import {LoginComponent} from './login/login.component'
 import {HomeComponent} from './home/home.component'
 import {CadastroEventoComponent} from './cadastro-evento/cadastro-evento.component'
 

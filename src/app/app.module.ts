@@ -7,9 +7,8 @@ import {RouterModule} from '@angular/router'
 import {ROUTES} from './app.routes'
 
 import { AppComponent } from './app.component';
-import { AcessoComponent } from './acesso/acesso.component';
 import { TopoComponent } from './topo/topo.component';
-import { LoginComponent } from './acesso/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { CadastroEventoComponent } from './cadastro-evento/cadastro-evento.component';
 import { HomeComponent } from './home/home.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -17,7 +16,6 @@ import { RodapeComponent } from './rodape/rodape.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AcessoComponent,
     TopoComponent,
     LoginComponent,
     CadastroEventoComponent,
