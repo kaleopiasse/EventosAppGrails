@@ -1,10 +1,9 @@
 export class Evento{
-    public id: number
-    public titulo: string
+    constructor(
+    public titulo: string,
+    public data: string,
+    public horaInicio: any,
+    public horaFim: any,
     public descricao: string
-    public user: string
-    public horaInicio: any
-    public horaFim: any
-    public data: string
-    public destaque: boolean
+    ){}
 }

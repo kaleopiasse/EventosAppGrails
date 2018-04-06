@@ -1,27 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { EventosService } from '../eventos.service'
+import { EventoService } from '../evento.service'
 import { Evento } from '../shared/evento.model'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [EventosService]
+  providers: [EventoService]
 })
 export class HomeComponent implements OnInit {
 
-  public eventos: Evento[]
+  public evento: Evento[]
 
-  constructor(private eventosService: EventosService) { }
+  constructor(private eventoService: EventoService) { }
 
   ngOnInit() {
-    this.eventosService.getEventos()
-      .then((eventos: Evento[]) => {
-        this.eventos = eventos
+    this.eventoService.getEventos()
+      .then((evento: Evento[]) => {
+        this.evento = evento
       })
       .catch((param: any) => {
         console.log(param)
       })
   }
-
 }

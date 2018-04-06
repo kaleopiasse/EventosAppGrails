@@ -1,0 +1,23 @@
+.container-fluid{
+    padding-top: 80px;
+}
+
+.btn-primary{
+    margin-right: 0.50em;
+}
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+textarea.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched{
+    border: 1px solid green;
+}
+
+textarea.ng-valid.ng-touched{
+    border: 1px solid green;
+}

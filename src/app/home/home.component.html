@@ -8,14 +8,13 @@
   <hr />
 
   <div class="row" style="margin-bottom: 50px;">
-    <div class="col-sm-4" *ngFor="let evento of eventos">
+    <div class="col-sm-4" *ngFor="let evento of evento">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">{{evento.titulo}}</h4>
           <p class="card-text">{{evento.descricao}}</p>
-
         </div>
-        <div class="card-footer">
+        <div class="card-footer card-block">
           <p class="text-muted">Data: {{evento.data}}</p>
           <p class="text-muted">Horario: {{evento.horaInicio}} ás {{evento.horaFim}}</p>
           <div class="d-flex justify-content-end align-text-top">

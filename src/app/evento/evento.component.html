@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <form [formGroup]="formulario" novalidate (ngSubmit)="salvarEvento()">
+    <div class="row">
+      <div class="col-md-4" >Preencha as informações para criar seu evento !!!</div>
+      <div class="col-md-8">
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <input 
+              class="form-control" 
+              type="text"
+              placeholder="Titulo" 
+              formControlName="titulo">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <input 
+              class="form-control" 
+              type="text"
+              onfocus="(this.type='date')" 
+              onblur="(this.type='text')"
+              placeholder="Data"
+              formControlName="data">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <input 
+              class="form-control" 
+              type="text"
+              onfocus="(this.type='time')" 
+              onblur="(this.type='text')"
+              placeholder="Horario de inicio"
+              formControlName="horaInicio">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <input 
+              class="form-control" 
+              type="text"
+              onfocus="(this.type='time')" 
+              onblur="(this.type='text')"
+              placeholder="Horario final"
+              formControlName="horaFim">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <textarea 
+            class="form-control" 
+            placeholder="Descrição"
+            formControlName="descricao" 
+            rows="3"
+            ></textarea>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8 d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" class="btn btn-danger">Cancelar</button>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </form>
+</div>

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopoComponent implements OnInit {
 
+  public srOnly: string = 'sr-only'
+
   constructor() { }
 
   ngOnInit() {

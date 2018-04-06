@@ -6,5 +6,6 @@
 }
 
 .card{
-    margin-top: 0.50em; 
+    margin-top: 0.50em;
+    min-height: 230px; 
 }
