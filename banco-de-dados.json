@@ -1,24 +1,20 @@
 {
   "eventos": [
     {
-      "id": 1,
       "titulo": "Curso de Angular",
-      "descricao": "Mini curso para introduzir alunos no framework da Google",
-      "user": "Original Burger",
+      "data": "01/03/18",
       "horaInicio": "17:30",
       "horaFim": "18:30",
-      "data": "01/03/18",
-      "destaque": true
+      "descricao": "Mini curso para introduzir alunos no framework da Google",
+      "id": 1
     },
     {
-      "id": 2,
-      "titulo": "SC-Con experience",
-      "descricao": "Primeiro encontro de fãs de HQ's, Super-Hérois, Animes e etc, em São Carlos",
-      "user": "Original Burger",
+      "titulo": "SC-Con XP",
+      "data": "02/05/18",
       "horaInicio": "17:30",
       "horaFim": "18:30",
-      "data": "02/05/18",
-      "destaque": true
+      "descricao": "Primeiro encontro de fãs de HQ's, Super-Hérois, Animes e etc, em São Carlos",
+      "id": 2
     },
     {
       "id": 3,
@@ -41,12 +37,19 @@
       "destaque": true
     },
     {
-      "titulo": "Teste",
-      "data": "2018-04-20",
-      "horaInicio": "10:30",
-      "horaFim": "11:30",
-      "descricao": "Testando",
-      "id": 5
+      "titulo": "Anime sanca fest",
+      "data": "2018-04-24",
+      "horaInicio": "11:30",
+      "horaFim": "15:30",
+      "descricao": "Evento para quem curte anime, cosplay e manga",
+      "id": 6
+    }
+  ],
+  "login": [
+    {
+      "id": 1,
+      "email": "kaleopiasse@gmail.com",
+      "senha": "123456"
     }
   ]
 }

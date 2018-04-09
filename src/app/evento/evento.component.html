@@ -57,8 +57,22 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-8 d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Salvar</button>
-            <button type="button" class="btn btn-danger">Cancelar</button>
+            <div *ngIf="option == 'false'">
+              <button  type="submit" class="btn btn-primary">Salvar</button>
+              <button type="button" class="btn btn-secondary btn-sm" routerLink='/home'>Cancelar</button>
+            </div>
+            <div *ngIf="option == 'true'">
+              <button  type="button" class="btn btn-primary" (click)="atualizarEvento()">Atualizar</button>
+              <button type="button" class="btn btn-secondary btn-sm" routerLink='/home'>Cancelar</button>
+              <button 
+                type="button" 
+                class="btn btn-danger btn-sm" 
+                (click)="deletarEvento()"
+              >Deletar</button>
+            </div>
+          </div>
+          <div class="col-md-8" *ngIf="mensagem">
+            <h4 class="text-center">{{msg}}</h4>
           </div>
         </div>
       </div> 

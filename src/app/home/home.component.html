@@ -1,14 +1,17 @@
-<div class="container-fluid">
-
-  <div class="secao">
-    <h3 class="text-center">Eventos Token</h3>
-    <h5 class="text-center">Aproveite para se inscrever e participar !!!</h5>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <h4 class="text-left">Eventos Token</h4>
+    </div>
+    <div class="col-md-6 col-sm-12 d-flex justify-content-end">
+      <button class="btn btn-primary" routerLink='/evento/false/0'>+ Criar evento</button>
+    </div>
   </div>
 
   <hr />
 
   <div class="row" style="margin-bottom: 50px;">
-    <div class="col-sm-4" *ngFor="let evento of evento">
+    <div class="col-sm-12 col-md-4" *ngFor="let evento of evento">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">{{evento.titulo}}</h4>
@@ -18,7 +21,7 @@
           <p class="text-muted">Data: {{evento.data}}</p>
           <p class="text-muted">Horario: {{evento.horaInicio}} ás {{evento.horaFim}}</p>
           <div class="d-flex justify-content-end align-text-top">
-            <a href="#" class="btn btn-secondary btn-sm">Edit</a>
+            <a class="btn btn-secondary btn-sm" type="button" (click)="enviarEvento(evento.id)">Editar</a>
           </div>
         </div>
       </div>

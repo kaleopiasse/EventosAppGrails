@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { EventoComponent } from './evento/evento.component';
 import { HomeComponent } from './home/home.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { LoginService } from './login.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { RodapeComponent } from './rodape/rodape.component';
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

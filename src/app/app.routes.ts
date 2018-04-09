@@ -6,6 +6,6 @@ import {EventoComponent} from './evento/evento.component'
 
 export const ROUTES: Routes = [
     {path:'', component: LoginComponent},
-    {path:'home/:srOnly', component: HomeComponent},
-    {path:'evento/:srOnly', component: EventoComponent}
+    {path:'home', component: HomeComponent},
+    {path:'evento/:option/:id', component: EventoComponent}
 ]

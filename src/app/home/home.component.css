@@ -1,11 +1,12 @@
-.container-fluid{
-    padding-top: 80px;
+.container{
+    margin-top: 5em;
 }
+
 .card-footer, .card-body{
     padding: 0.50em;
 }
 
 .card{
     margin-top: 0.50em;
-    min-height: 230px; 
+    min-height: 15em; 
 }

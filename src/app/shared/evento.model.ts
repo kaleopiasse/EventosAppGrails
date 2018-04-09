@@ -1,4 +1,5 @@
 export class Evento{
+    public id: number
     constructor(
     public titulo: string,
     public data: string,
