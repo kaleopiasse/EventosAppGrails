@@ -24,7 +24,7 @@ export class EventoService{
     }
 
     public getEventos(): Observable<Evento[]>{
-        return this.http.get(`${URL}/eventos`)
+        return this.http.get(`${URL}/eventos?_sort=data&_order=asc`)
         .map((resposta:Response ) => resposta.json() )
     }
 

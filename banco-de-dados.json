@@ -37,20 +37,12 @@
       "destaque": true
     },
     {
-      "titulo": "Anime sanca fest",
-      "data": "2018-04-24",
-      "horaInicio": "11:30",
-      "horaFim": "15:30",
-      "descricao": "Evento para quem curte anime, cosplay e manga",
-      "id": 6
-    },
-    {
-      "titulo": "Tudo pronto",
-      "data": "2018-04-22",
-      "horaInicio": "15:20",
-      "horaFim": "17:00",
-      "descricao": "Finalizando projeto de forma simples",
-      "id": 7
+      "titulo": "Festa Fim de ano",
+      "data": "2018-12-12",
+      "horaInicio": "10:00",
+      "horaFim": "09:00",
+      "descricao": "Confraternização",
+      "id": 5
     }
   ],
   "login": [
