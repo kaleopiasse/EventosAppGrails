@@ -43,6 +43,14 @@
       "horaFim": "15:30",
       "descricao": "Evento para quem curte anime, cosplay e manga",
       "id": 6
+    },
+    {
+      "titulo": "Tudo pronto",
+      "data": "2018-04-22",
+      "horaInicio": "15:20",
+      "horaFim": "17:00",
+      "descricao": "Finalizando projeto de forma simples",
+      "id": 7
     }
   ],
   "login": [
