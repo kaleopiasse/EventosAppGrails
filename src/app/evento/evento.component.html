@@ -16,8 +16,9 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
-              <small *ngIf="formulario.get('data').valid && formulario.get('data').touched" class="form-text text-success">Ok</small>
-              <small *ngIf="!formulario.get('data').valid && formulario.get('data').touched" class="form-text text-danger">Campo incorreto !!!</small>
+              <small *ngIf="verificaData() && formulario.get('data').valid && formulario.get('data').touched" class="form-text text-success">Ok</small>
+              <small *ngIf="verificaData() && !formulario.get('data').valid && formulario.get('data').touched" class="form-text text-danger">Campo incorreto !!!</small>
+              <small *ngIf="!verificaData() && formulario.get('data').touched" class="form-text text-danger">"A data do evento não pode ser menor que a data atual"</small>
             <input 
               class="form-control" 
               type="text"
@@ -30,7 +31,7 @@
         <div class="form-row">
           <div class="form-group col-md-8">
               <small *ngIf="formulario.get('horaInicio').valid && formulario.get('horaInicio').touched" class="form-text text-success">Ok</small>
-              <small *ngIf="!formulario.get('horaInicio').valid && formulario.get('horaInicio').touched" class="form-text text-danger">Campo incorreto !!!</small>
+              <small *ngIf="!formulario.get('horaInicio').valid && formulario.get('horaInicio').touched" class="form-text text-danger" id="divNg">Campo incorreto !!!</small>
             <input 
               class="form-control" 
               type="text"
@@ -44,6 +45,7 @@
           <div class="form-group col-md-8">
               <small *ngIf="formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-success">Ok</small>
               <small *ngIf="!formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-danger">Campo incorreto !!!</small>
+              <small *ngIf="!verificaHora()" class="form-text text-danger">Hora de término precisa ser maior que a hora de inicio do evento</small>
             <input 
               class="form-control" 
               type="text"
