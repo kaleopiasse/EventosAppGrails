@@ -43,6 +43,30 @@
       "horaFim": "09:00",
       "descricao": "Confraternização",
       "id": 5
+    },
+    {
+      "titulo": "Teste do campo date",
+      "data": "2019-05-25",
+      "horaInicio": "20:00",
+      "horaFim": "21:00",
+      "descricao": "testando campo descricao",
+      "id": 6
+    },
+    {
+      "titulo": "teste novamente",
+      "data": "2018-05-20",
+      "horaInicio": "19:00",
+      "horaFim": "20:00",
+      "descricao": "testes",
+      "id": 7
+    },
+    {
+      "titulo": "teste",
+      "data": "2018-05-20",
+      "horaInicio": "20:00",
+      "horaFim": "21:00",
+      "descricao": "teste tipo date na classe",
+      "id": 8
     }
   ],
   "login": [
