@@ -10,63 +10,43 @@
     },
     {
       "titulo": "SC-Con XP",
-      "data": "02/05/18",
+      "data": "2018-05-05",
       "horaInicio": "17:30",
       "horaFim": "18:30",
       "descricao": "Primeiro encontro de fãs de HQ's, Super-Hérois, Animes e etc, em São Carlos",
       "id": 2
     },
     {
-      "id": 3,
-      "titulo": "Churras de férias",
-      "descricao": "Confraternização de férias de inverno",
-      "user": "Original Burger",
-      "horaInicio": "13:30",
-      "horaFim": "15:30",
-      "data": "31/06/18",
-      "destaque": true
-    },
-    {
-      "id": 4,
-      "titulo": "Curso de Node",
-      "descricao": "Mini curso sobre as novidades na nova versão do framework Node.js",
-      "user": "Original Burger",
-      "horaInicio": "17:30",
-      "horaFim": "18:30",
-      "data": "18/07/18",
-      "destaque": true
-    },
-    {
-      "titulo": "Festa Fim de ano",
-      "data": "2018-12-12",
+      "titulo": "Mini Curso Scrum",
+      "data": "11/12/2018",
       "horaInicio": "10:00",
-      "horaFim": "09:00",
-      "descricao": "Confraternização",
+      "horaFim": "11:00",
+      "descricao": "Introdução as metodologias Scrum",
+      "id": 3
+    },
+    {
+      "titulo": "Curso de bootstrap",
+      "data": "14/05/2018",
+      "horaInicio": "10:00",
+      "horaFim": "12:00",
+      "descricao": "Recursos mais utilizados da ferramenta bootstrap",
+      "id": 4
+    },
+    {
+      "titulo": "Hallowen",
+      "data": "2018-10-31",
+      "horaInicio": "00:00",
+      "horaFim": "23:59",
+      "descricao": "Comemoração do dia das bruxas",
       "id": 5
     },
     {
-      "titulo": "Teste do campo date",
-      "data": "2019-05-25",
-      "horaInicio": "20:00",
-      "horaFim": "21:00",
-      "descricao": "testando campo descricao",
+      "titulo": "Comic Con experience",
+      "data": "20/07/2018",
+      "horaInicio": "10:20",
+      "horaFim": "11:30",
+      "descricao": "Heróis, Séries, Mangás, Animes, Hq´s",
       "id": 6
-    },
-    {
-      "titulo": "teste novamente",
-      "data": "2018-05-20",
-      "horaInicio": "19:00",
-      "horaFim": "20:00",
-      "descricao": "testes",
-      "id": 7
-    },
-    {
-      "titulo": "teste",
-      "data": "2018-05-20",
-      "horaInicio": "20:00",
-      "horaFim": "21:00",
-      "descricao": "teste tipo date na classe",
-      "id": 8
     }
   ],
   "login": [

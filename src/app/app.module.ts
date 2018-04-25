@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,LOCALE_ID } from '@angular/core';
 //import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms'
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router'
+//import { registerLocaleData } from '@angular/common';
+//import ptBr from '@angular/common/locales/pt';
 
 import {ROUTES} from './app.routes'
 
@@ -15,6 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { LoginService } from './login.service';
 
+//Pipe descricao reduzida
+import {DescricaoReduzida} from './descricao-reduzida.pipe'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +28,7 @@ import { LoginService } from './login.service';
     EventoComponent,
     HomeComponent,
     RodapeComponent,
+    DescricaoReduzida
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,7 @@ import { LoginService } from './login.service';
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [LoginService],
+  providers: [LoginService, { provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

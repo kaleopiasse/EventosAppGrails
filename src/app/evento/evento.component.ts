@@ -58,6 +58,9 @@ export class EventoComponent implements OnInit {
         this.formulario.value.descricao
       )
 
+      evento.data = (new Intl.DateTimeFormat('pt-BR').format(new Date(evento.data)))
+      console.log(evento)
+      
       this.eventoService.postEvento(evento)
       .subscribe((idEvento: number) => {
         console.log(idEvento)
@@ -119,7 +122,12 @@ export class EventoComponent implements OnInit {
   public feedbackUser(msg:string){
     this.msg = msg
     this.mensagem=true
+    setTimeout(()=>(this.router.navigate(['/home'])),2000)
     this.limparForm()
-    setTimeout(()=>(this.router.navigate(['/home'])),4000)
+    this.formulario.get('titulo').markAsUntouched()
+    this.formulario.get('data').markAsUntouched()
+    this.formulario.get('horaInicio').markAsUntouched()
+    this.formulario.get('horaFim').markAsUntouched()
+    this.formulario.get('descricao').markAsUntouched()
   }
 }

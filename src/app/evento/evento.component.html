@@ -1,10 +1,12 @@
 <div class="container-fluid">
   <form [formGroup]="formulario" novalidate (ngSubmit)="salvarEvento()">
     <div class="row">
-      <div class="col-md-4" >Preencha as informações para criar seu evento !!!</div>
+      <div class="col-md-4" ><p class="text-center">Preencha as informações ao lado para criar um evento:</p></div>
       <div class="col-md-8">
         <div class="form-row">
           <div class="form-group col-md-8">
+              <small *ngIf="formulario.get('titulo').valid && formulario.get('titulo').touched" class="form-text text-success">Ok</small>
+              <small *ngIf="!formulario.get('titulo').valid && formulario.get('titulo').touched" class="form-text text-danger">Campo incorreto !!!</small>
             <input 
               class="form-control" 
               type="text"
@@ -14,6 +16,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
+              <small *ngIf="formulario.get('data').valid && formulario.get('data').touched" class="form-text text-success">Ok</small>
+              <small *ngIf="!formulario.get('data').valid && formulario.get('data').touched" class="form-text text-danger">Campo incorreto !!!</small>
             <input 
               class="form-control" 
               type="text"
@@ -25,6 +29,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
+              <small *ngIf="formulario.get('horaInicio').valid && formulario.get('horaInicio').touched" class="form-text text-success">Ok</small>
+              <small *ngIf="!formulario.get('horaInicio').valid && formulario.get('horaInicio').touched" class="form-text text-danger">Campo incorreto !!!</small>
             <input 
               class="form-control" 
               type="text"
@@ -36,6 +42,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
+              <small *ngIf="formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-success">Ok</small>
+              <small *ngIf="!formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-danger">Campo incorreto !!!</small>
             <input 
               class="form-control" 
               type="text"
@@ -47,6 +55,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
+              <small *ngIf="formulario.get('descricao').valid && formulario.get('descricao').touched" class="form-text text-success">Ok</small>
+              <small *ngIf="!formulario.get('descricao').valid && formulario.get('descricao').touched" class="form-text text-danger">Campo incorreto !!!</small>
             <textarea 
             class="form-control" 
             placeholder="Descrição"
@@ -72,7 +82,7 @@
             </div>
           </div>
           <div class="col-md-8" *ngIf="mensagem">
-            <h4 class="text-center">{{msg}}</h4>
+            <h5 class="text-center">{{msg}}</h5>
           </div>
         </div>
       </div> 
