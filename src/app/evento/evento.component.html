@@ -43,8 +43,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-8">
-              <small *ngIf="formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-success">Ok</small>
-              <small *ngIf="!formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-danger">Campo incorreto !!!</small>
+              <small *ngIf="verificaHora() && formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-success">Ok</small>
+              <small *ngIf="verificaHora() && !formulario.get('horaFim').valid && formulario.get('horaFim').touched" class="form-text text-danger">Campo incorreto !!!</small>
               <small *ngIf="!verificaHora()" class="form-text text-danger">Hora de término precisa ser maior que a hora de inicio do evento</small>
             <input 
               class="form-control" 

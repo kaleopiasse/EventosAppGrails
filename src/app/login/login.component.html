@@ -2,6 +2,8 @@
   <form class="form-signin" [formGroup]="formulario" novalidate (ngSubmit)="validarLogin()">
     <img class="mb-4" src="../../../assets/calendarIco.png" alt="" width="96" height="96">
     <label for="inputEmail" class="sr-only">Email address</label>
+    <small *ngIf="!formulario.get('email').valid && formulario.get('email').touched" class="form-text text-danger">Preencha os campos corretamente</small>
+    <small *ngIf="!formulario.get('senha').valid && formulario.get('senha').touched" class="form-text text-danger">Preencha os campos corretamente</small>
     <input 
       type="email" 
       id="inputEmail" 

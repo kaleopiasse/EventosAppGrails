@@ -45,7 +45,15 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home'])
       }
       else{
-        console.log('Falhou')
+        this.formulario.setValue({
+          email: [''],
+          senha: ['']
+        })
+        this.router.navigate(['/'])
+        this.formulario.get('email').markAsTouched()
+        this.formulario.get('senha').markAsTouched()
+        this.formulario.get('email').invalid
+        this.formulario.get('senha').invalid
       }
     }
   }
