@@ -1,43 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,LOCALE_ID } from '@angular/core';
-//import { FormsModule } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms'
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router'
-//import { registerLocaleData } from '@angular/common';
-//import ptBr from '@angular/common/locales/pt';
 
-import {ROUTES} from './app.routes'
+import {ROUTES, AppRoutingModule} from './app-routing.module'
 
 import { AppComponent } from './app.component';
-import { TopoComponent } from './topo/topo.component';
-import { LoginComponent } from './login/login.component';
-import { EventoComponent } from './evento/evento.component';
-import { HomeComponent } from './home/home.component';
-import { RodapeComponent } from './rodape/rodape.component';
-import { LoginService } from './login.service';
+import { TopoComponent } from './base/topo/topo.component';
+import { RodapeComponent } from './base/rodape/rodape.component';
+import { LoginService } from './shared/services/login.service';
 
-//Pipe descricao reduzida
-import {DescricaoReduzida} from './descricao-reduzida.pipe'
 import { HttpClientModule } from '@angular/common/http';
+import { LoginModule } from './login/login.module';
+import { EventoModule } from './evento/evento.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
-    LoginComponent,
-    EventoComponent,
-    HomeComponent,
-    RodapeComponent,
-    DescricaoReduzida
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
-    //FormsModule,
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    LoginModule,
+    EventoModule,
+    AppRoutingModule
   ],
   providers: [LoginService, { provide: LOCALE_ID, useValue: 'pt' }],
   bootstrap: [AppComponent]

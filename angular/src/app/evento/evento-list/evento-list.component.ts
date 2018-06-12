@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { EventoService } from '../evento.service'
-import { Evento } from '../shared/evento.model'
+import { EventoService } from '../../shared/services/evento.service'
+import { Evento } from '../../shared/models/evento.model'
 import {Router} from '@angular/router';
 
+
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-evento-list',
+  templateUrl: './evento-list.component.html',
+  styleUrls: ['./evento-list.component.css'],
   providers: [EventoService]
 })
-export class HomeComponent implements OnInit {
+export class EventoListComponent implements OnInit {
 
   public evento: Evento[]
 
@@ -26,4 +27,5 @@ export class HomeComponent implements OnInit {
   public enviarEvento(id : number){
     this.router.navigate(['/evento/true/',id]) 
   }
+
 }

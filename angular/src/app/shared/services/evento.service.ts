@@ -4,9 +4,7 @@ import { Injectable } from '@angular/core'
 import {Observable} from 'rxjs/Observable'
 import 'rxjs/Rx';
 
-import {URL} from './app.api'
-
-import {Evento} from './shared/evento.model'
+import {Evento} from '../models/evento.model'
 import { environment } from 'environments/environment';
 
 interface EventosLisRes{

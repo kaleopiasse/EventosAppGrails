@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { Evento } from '../shared/evento.model'
-import { EventoService } from '../evento.service'
+import { Evento } from '../shared/models/evento.model'
+import { EventoService } from '../shared/services/evento.service'
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable'
 import { Router } from '@angular/router';
@@ -123,7 +123,7 @@ export class EventoComponent implements OnInit {
 
   public deletarEvento() {
     this.eventoService.deleteEventoById(parseInt(this.id))
-      .subscribe((res => {
+      .subscribe(res => {
         console.log(res)
         this.feedbackUser("Evento deletado com sucesso !!!")
       })

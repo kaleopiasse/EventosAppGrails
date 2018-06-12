@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms'
-import {Login} from '../shared/login.model'
-import {LoginService} from '../login.service'
+import {Login} from '../shared/models/login.model'
+import {LoginService} from '../shared/services/login.service'
 import {Observable} from 'rxjs/Observable'
 import 'rxjs/Rx';
 import { Injectable, EventEmitter } from '@angular/core';
@@ -27,8 +27,10 @@ export class LoginComponent implements OnInit {
   })
 
   ngOnInit() {
+    /*
     this.loginService.getLogin()
         .subscribe((login : Login[]) => this.res = login)
+    */
   }
 
   public validarLogin(): void{
