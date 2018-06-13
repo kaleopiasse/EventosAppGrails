@@ -19,7 +19,12 @@ export class LoginComponent implements OnInit {
 
   public res : Login[]
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  public username:string
+  public password:string
+
+  constructor(
+    private loginService: LoginService, 
+    private router: Router) {}
 
   public formulario: FormGroup = new FormGroup({
     'email': new FormControl(null,[Validators.required, Validators.minLength(3), Validators.maxLength(120)]),
@@ -43,8 +48,14 @@ export class LoginComponent implements OnInit {
         this.formulario.value.email,
         this.formulario.value.senha
       )
+      /*
       if(login.email===this.res[0].email && login.senha === this.res[0].senha){
         this.router.navigate(['/home'])
+      }
+      */
+     if(this.loginService.doLogin({username: this.formulario.value.email, password: this.formulario.value.senha})){
+      //this.router.navigate(['/home'])
+      console.log('teste')
       }
       else{
         this.formulario.setValue({

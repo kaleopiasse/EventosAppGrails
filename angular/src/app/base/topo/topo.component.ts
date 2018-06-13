@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../shared/services/login.service';
 
 @Component({
   selector: 'app-topo',
@@ -9,9 +10,19 @@ export class TopoComponent implements OnInit {
 
   //public srOnly: string = 'sr-only'
 
-  constructor() { }
+  constructor(
+    private loginService: LoginService
+  ){}
 
-  ngOnInit() {
+  ngOnInit(){
+  }
+
+  public isLoggedIn(){
+    return this.loginService.isLoggedIn()
+  }
+
+  public logout() {
+    this.loginService.logout()
   }
 
 }

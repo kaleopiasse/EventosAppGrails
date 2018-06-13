@@ -3,7 +3,7 @@
     <img src="../../../assets/calendarIco.png" width="32" height="32" class="d-inline-block align-top" alt="">
     Gerenciador de eventos
   </a>
-  <div class="col d-flex justify-content-end">
-      <button class="btn btn-sm align-middle btn-outline-secondary" type="button" routerLink='/'>Sair</button>
+  <div class="col d-flex justify-content-end" *ngIf="isLoggedIn()">
+      <button class="btn btn-sm align-middle btn-outline-secondary" type="button" (click)="logout()">Sair</button>
   </div>
 </nav>

@@ -5,7 +5,7 @@ import {EventoComponent} from './evento.component'
 import { EventoListComponent } from './evento-list/evento-list.component';
 
 export const ROUTES: Routes = [
-    {path:'home', component: EventoListComponent},
+    {path:'', component: EventoListComponent},
     {path:'evento/:option/:id', component: EventoComponent}
 ]
 

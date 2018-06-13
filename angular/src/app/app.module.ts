@@ -11,9 +11,10 @@ import { TopoComponent } from './base/topo/topo.component';
 import { RodapeComponent } from './base/rodape/rodape.component';
 import { LoginService } from './shared/services/login.service';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
 import { EventoModule } from './evento/evento.module';
+import { AppHttpInterceptor } from './shared/interceptors/app.http.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,21 @@ import { EventoModule } from './evento/evento.module';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    LoginModule,
-    EventoModule,
+    //LoginModule,
+    //EventoModule,
     AppRoutingModule
   ],
-  providers: [LoginService, { provide: LOCALE_ID, useValue: 'pt' }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi:true
+    },
+    LoginService, 
+    { provide: LOCALE_ID, 
+      useValue: 'pt' 
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

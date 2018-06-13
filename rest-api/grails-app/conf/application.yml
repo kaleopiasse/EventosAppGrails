@@ -114,3 +114,8 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+
+jwt:
+    token:
+        key: "PASSWORD"
+        expirationTime: 86400000
