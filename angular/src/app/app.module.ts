@@ -37,10 +37,11 @@ import { AppHttpInterceptor } from './shared/interceptors/app.http.interceptor';
       useClass: AppHttpInterceptor,
       multi:true
     },
-    LoginService, 
+    LoginService,
+    /* 
     { provide: LOCALE_ID, 
-      useValue: 'pt' 
-    },
+      useValue: 'pt-BR' 
+    },*/
   ],
   bootstrap: [AppComponent]
 })

@@ -22,7 +22,8 @@ class EventoService {
     def findAllOrderByName(HttpServletResponse response) {
         JSONObject responseJSONObject = new JSONObject()
         try {
-            List<Evento> eventos = Evento.findAll().sort( { it.titulo.toLowerCase() } )
+            //List<Evento> eventos = Evento.findAll().sort( { it.titulo.toLowerCase() } )
+            List<Evento> eventos = Evento.findAll(sort:"data", order:"asc")
             responseJSONObject = EventoUtil.instance.getEventoJSONObjectArray(eventos)
             response.status = HttpStatus.OK.value()
         } catch(IllegalArgumentException e) {
@@ -55,10 +56,14 @@ class EventoService {
         JSONObject responseJSONObject = new JSONObject()
         JSONObject jsonObject = request.JSON
 
+        User user = User.findById(jsonObject.getInt('userId'))
+
         try {
             JsonSlurper jsonSlurper = new JsonSlurper()
-            Evento evento = new Evento(jsonSlurper.parseText(jsonObject.toString()))
-
+            Evento evento;
+            user.addToEventos(evento = new Evento(jsonSlurper.parseText(jsonObject.toString())))
+            //Evento evento = new Evento(jsonSlurper.parseText(jsonObject.toString()))
+            println(evento.user)
             if(!evento.validate()) {
                 throw new IllegalArgumentException(evento.errors)
             }

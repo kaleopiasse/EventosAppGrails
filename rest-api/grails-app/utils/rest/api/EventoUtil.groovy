@@ -18,7 +18,8 @@ class EventoUtil {
                         'data': sdf.format(evento.data),
                         'horaInicio': evento.horaInicio,
                         'horaFim': evento.horaFim,
-                        'descricao': evento.descricao
+                        'descricao': evento.descricao,
+                        'userId': evento.userId
                 ]
         )
         return eventoJSONObject

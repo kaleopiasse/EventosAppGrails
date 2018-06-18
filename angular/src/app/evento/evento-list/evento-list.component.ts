@@ -13,6 +13,7 @@ import {Router} from '@angular/router';
 export class EventoListComponent implements OnInit {
 
   public evento: Evento[]
+  authUser;
 
   constructor(private eventoService: EventoService, private router: Router) { }
 
@@ -22,10 +23,18 @@ export class EventoListComponent implements OnInit {
         this.evento = res.eventos
         console.log(res.eventos)
       })
+
+    this.authUser = JSON.parse(localStorage.getItem('loginData'));
   }
 
   public enviarEvento(id : number){
-    this.router.navigate(['/evento/true/',id]) 
+    this.router.navigate(['home/evento/true/'+id]) 
+  }
+
+  public updateIs(id:any){
+    if(this.authUser.id === id){
+      return true
+    }
   }
 
 }

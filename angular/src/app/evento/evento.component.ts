@@ -16,15 +16,16 @@ import { parse } from 'path';
 export class EventoComponent implements OnInit {
 
   //public idEventoSalvo : number
-  public evento: Evento[]
+  public eventos: Evento[]
   public option: string = 'false'
   public id: string
   public mensagem: boolean = false
   public msg: string = ''
+  authUser;
 
   public formulario: FormGroup = new FormGroup({
     'titulo': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]),
-    'data': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]),
+    'data': new FormControl(null, [Validators.required, Validators.minLength(9), Validators.maxLength(10)]),
     'horaInicio': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]),
     'horaFim': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]),
     'descricao': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)]),
@@ -40,6 +41,12 @@ export class EventoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authUser = JSON.parse(localStorage.getItem('loginData'));
+    this.eventoService.getEventos()
+    .subscribe(res => {
+        this.eventos= res.eventos
+        console.log(res.eventos)
+      })
   }
 
   public salvarEvento(): void {
@@ -49,31 +56,24 @@ export class EventoComponent implements OnInit {
       this.formulario.get('horaInicio').markAsTouched()
       this.formulario.get('horaFim').markAsTouched()
       this.formulario.get('descricao').markAsTouched()
-      console.log(this.verificaData())
     }
     else {
       let evento: Evento = new Evento(
         this.formulario.value.titulo,
-        this.formulario.value.data,
+        this.formDate(),
         this.formulario.value.horaInicio,
         this.formulario.value.horaFim,
         this.formulario.value.descricao
       )
-
-      evento.data = (new Intl.DateTimeFormat('pt-BR').format(new Date(evento.data)))
-      console.log(this.verificaData())
-
-      /*this.eventoService.postEvento(evento)
-        .subscribe((idEvento: number) => {
-          console.log(idEvento)
-          this.feedbackUser("Evento salvo com sucesso !!!")
-        })*/
+      evento.userId = this.authUser.id
+      console.log(evento)
 
       this.eventoService.saveEvento(evento)
       .subscribe(res => {
         console.log(res)
         this.feedbackUser("Evento salvo com sucesso !!!");
       })
+      
     }
   }
 
@@ -86,17 +86,9 @@ export class EventoComponent implements OnInit {
       this.formulario.value.descricao
     )
     evento.id = parseInt(this.id)
-    evento.data = (new Intl.DateTimeFormat('pt-BR').format(new Date(evento.data)))
+    evento.data = this.formDate()
     console.log("Atualizar evento")
     console.log(evento)
-
-    /*
-    this.eventoService.updateEvento(evento)
-      .subscribe((idEvento: number) => {
-        console.log(idEvento)
-        this.feedbackUser("Evento atualizado com sucesso !!!")
-      })
-    */
 
     this.eventoService.updateEvento(evento)
     .subscribe(res => {
@@ -110,7 +102,6 @@ export class EventoComponent implements OnInit {
     console.log("Preenchendo dados evento")
     this.eventoService.getEventoById(parseInt(this.id))
       .subscribe((evento: Evento) => {
-        //this.evento = evento
         this.formulario.setValue({
           titulo: evento['titulo'],
           data: evento['data'],
@@ -152,12 +143,12 @@ export class EventoComponent implements OnInit {
   }
 
   public verificaData() {
-    var data_atual = new Date()
-    var diaDoMes = data_atual.getDate()
+    let data_atual = new Date()
+    let diaDoMes = data_atual.getDate()
     data_atual.setDate(diaDoMes - 1)
-    var data_usuario = new Date(this.formulario.value.data)
+    let data_usuario = new Date(this.formulario.value.data)
 
-    if (data_usuario < data_atual) {
+    if (data_usuario <= data_atual) {
       this.formulario.get('data').invalid
       return false
     }
@@ -175,5 +166,36 @@ export class EventoComponent implements OnInit {
       }
     }
     return true
+  }
+
+  public existEvent(){
+    let achou;
+    for(let e in this.eventos) {
+      let dt = this.eventos[e].data.split('/')
+      var data = new Date(dt[1]+'/'+dt[0]+'/'+dt[2]);
+      let dtUser = new Date(this.formulario.value.data)
+      let dia = dtUser.getDate()
+      dtUser.setDate(dia+1)
+      if(dtUser.getFullYear()==data.getFullYear() && dtUser.getMonth()==data.getMonth()){
+        if(dtUser.getDate()==data.getDate()
+        && this.formulario.value.horaInicio == this.eventos[e].horaInicio 
+        && this.formulario.value.horaFim == this.eventos[e].horaFim){
+          achou = true
+        }
+      }
+    }
+    return achou
+  }
+
+  public formDate(){
+    let dataFormatada;
+    let data_atual = new Date(this.formulario.value.data)
+    let diaDoMes = data_atual.getDate()
+    data_atual.setDate(diaDoMes + 1)
+    return dataFormatada = (new Intl.DateTimeFormat('pt-BR').format(data_atual))
+  }
+
+  public comparaData(){
+
   }
 }
