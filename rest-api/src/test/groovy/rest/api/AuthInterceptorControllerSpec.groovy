@@ -3,7 +3,7 @@ package rest.api
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class AuthInterceptorControllerSpec extends Specification implements ControllerUnitTest<AuthInterceptorController> {
+class AuthInterceptorControllerSpec extends Specification implements ControllerUnitTest<AuthInterceptor> {
 
     def setup() {
     }

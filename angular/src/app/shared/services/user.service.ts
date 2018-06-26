@@ -6,22 +6,23 @@ import 'rxjs/Rx';
 
 import {Evento} from '../models/evento.model'
 import { environment } from 'environments/environment';
+import { User } from '../models/user.model';
 
-interface EventosLisRes{
-    eventos : Evento[]
+interface UsersLisRes{
+    users : User[]
 }
 
 @Injectable()
-export class EventoService{
+export class UserService{
 
     private baseUrl = environment.baseUrl
 
     constructor (private http:Http, private $http: HttpClient){}
 
-    public getEventos(): Observable<EventosLisRes>{
-        return this.$http.get<EventosLisRes>(this.baseUrl+`/evento`)
+    public getUsers(): Observable<UsersLisRes>{
+        return this.$http.get<UsersLisRes>(this.baseUrl+`/user`)
     }
-    
+    /*
     public saveEvento(evento: Evento): Observable<Evento>{
         return this.$http.post<Evento>(this.baseUrl+'/evento/',evento)
     }
@@ -37,4 +38,5 @@ export class EventoService{
     public deleteEventoById(id: number): Observable<Evento>{
         return this.$http.delete<Evento>(this.baseUrl+'/evento/'+id)
     }
+    */
 }

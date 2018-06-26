@@ -2,27 +2,47 @@ import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../shared/services/evento.service'
 import { Evento } from '../../shared/models/evento.model'
 import {Router} from '@angular/router';
+import { User } from '../../shared/models/user.model';
+import { UserService } from '../../shared/services/user.service';
+import {FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Convite } from '../../shared/models/convite.model';
 
 
 @Component({
   selector: 'app-evento-list',
   templateUrl: './evento-list.component.html',
   styleUrls: ['./evento-list.component.css'],
-  providers: [EventoService]
+  providers: [EventoService, UserService]
 })
 export class EventoListComponent implements OnInit {
 
   public evento: Evento[]
+  public user = []
+  public convite: Convite
+  public convites = []
+  form: FormGroup
   authUser;
 
-  constructor(private eventoService: EventoService, private router: Router) { }
+  constructor(private eventoService: EventoService,
+    private router: Router,
+    private userService: UserService,
+    private fb: FormBuilder) {
+      this.form = this.fb.group({
+        checkbox: "" 
+      })
+     }
 
   ngOnInit() {
     this.eventoService.getEventos()
     .subscribe(res => {
-        this.evento = res.eventos
-        console.log(res.eventos)
-      })
+      this.evento = res.eventos
+    })
+
+    this.userService.getUsers()
+    .subscribe(res =>{
+      this.user = res.users;
+      console.log(this.user)
+    })
 
     this.authUser = JSON.parse(localStorage.getItem('loginData'));
   }
@@ -37,4 +57,67 @@ export class EventoListComponent implements OnInit {
     }
   }
 
+  public convidarUsuario(user: User){
+    if(user.selected == true){
+      user.selected = false
+    }
+    else{
+      user.selected = true
+    }
+    console.log(user);
+  }
+
+  debug(userId:number, eventoId:number){
+
+    console.log(this.convites)
+
+    let convite: Convite = new Convite(userId, eventoId, true);
+
+    console.log(convite)
+
+    if(this.convites === null || this.convites.length === 0){
+      console.log('è nulo')
+      this.convites.push(convite);
+    }
+    else{
+      console.log('Não é nulo!!!')
+      for (let i=0; i< this.convites.length; i++){
+        console.log('For')
+        if((this.equals(this.convites[i], convite))){
+          console.log('é igual !!!')
+          this.convites[i].flag = false
+        }
+        else{
+          this.convites.push(convite)
+          console.log('não é igual')
+        }
+      }
+    }
+    console.log(this.convites)
+  }
+
+  public equals(object1, object2) {
+    var prop1 = Object.getOwnPropertyNames(object1);
+    var prop2 = Object.getOwnPropertyNames(object1);
+
+    if(prop1.length !== prop2.length)
+        return false;
+
+    if(prop1.length === 0)
+        if(object1 === object2)
+            return true;
+        else
+            return false;
+
+    for(var i = 0; i < prop1.length; i++) {
+        var prop = prop1[i];
+        if(object1[prop] !== object2[prop]){
+            if(this.equals(object1[prop], object2[prop]))
+                continue;
+            else
+                return false;
+        }
+    }
+    return true;
+  }
 }
