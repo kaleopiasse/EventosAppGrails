@@ -39,10 +39,10 @@
               </button>
             </div>
             <div class="modal-body">
-              <form [formGroup]="form">
+              <form #form="ngForm">
                 <div class="list-group" *ngFor="let user of user">
                   <li class="list-group-item list-group-item-action justify-content-between">{{user.username}}
-                    <input type="checkbox" formControlName="checkbox" (click)="debug(user.id, evento.id)">{{user.id}}
+                    <input type="checkbox" name="{{user.username}}" (change)="debug(user.id, evento.id)" ngModel>
                   </li>
                 </div>
               </form>

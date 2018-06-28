@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EventoRoutingModule } from './evento-routing.module';
 
 import { EventoComponent } from './evento.component';
@@ -12,6 +12,7 @@ import { DescricaoReduzida } from '../shared/pipes/descricao-reduzida.pipe';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     EventoRoutingModule
   ],

@@ -4,8 +4,9 @@ import { Evento } from '../../shared/models/evento.model'
 import {Router} from '@angular/router';
 import { User } from '../../shared/models/user.model';
 import { UserService } from '../../shared/services/user.service';
-import {FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import {FormBuilder, FormGroup, FormArray, NgForm, NgModel } from '@angular/forms';
 import { Convite } from '../../shared/models/convite.model';
+import { Observable } from 'rxjs/Rx';
 
 
 @Component({
@@ -20,17 +21,11 @@ export class EventoListComponent implements OnInit {
   public user = []
   public convite: Convite
   public convites = []
-  form: FormGroup
   authUser;
 
   constructor(private eventoService: EventoService,
     private router: Router,
-    private userService: UserService,
-    private fb: FormBuilder) {
-      this.form = this.fb.group({
-        checkbox: "" 
-      })
-     }
+    private userService: UserService) {}
 
   ngOnInit() {
     this.eventoService.getEventos()
@@ -67,8 +62,11 @@ export class EventoListComponent implements OnInit {
     console.log(user);
   }
 
-  debug(userId:number, eventoId:number){
+  debug(userId: number, eventoId: number){
 
+    //console.log(form)
+
+    
     console.log(this.convites)
 
     let convite: Convite = new Convite(userId, eventoId, true);
@@ -81,17 +79,15 @@ export class EventoListComponent implements OnInit {
     }
     else{
       console.log('Não é nulo!!!')
-      for (let i=0; i< this.convites.length; i++){
+      for (let i=0; i < this.convites.length; i++){
         console.log('For')
         if((this.equals(this.convites[i], convite))){
           console.log('é igual !!!')
           this.convites[i].flag = false
         }
-        else{
-          this.convites.push(convite)
-          console.log('não é igual')
-        }
       }
+      this.convites.push(convite)
+      console.log('não é igual')
     }
     console.log(this.convites)
   }
@@ -120,4 +116,5 @@ export class EventoListComponent implements OnInit {
     }
     return true;
   }
+  
 }

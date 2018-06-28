@@ -1,7 +1,11 @@
 <div class="container-fluid">
   <form [formGroup]="formulario" novalidate (ngSubmit)="salvarEvento()">
     <div class="row">
-      <div class="col-md-4" ><p class="text-center">Preencha as informações ao lado para criar um evento:</p></div>
+      <div class="col-md-8" >
+        <div class="form-row col-md-8">
+          <p>Preencha as informações ao lado para criar um evento:</p>
+        </div>
+      </div>
       <div class="col-md-8">
         <div class="form-row">
           <div class="form-group col-md-8">
