@@ -13,13 +13,13 @@ class UserController {
         render userService.findAllOrderByName(response)
     }
 
+    def show() {
+        render userService.findByName(params, response)
+    }
+
     /*
     def delete() {
         render eventoService.delete (params, request, response)
-    }
-
-    def show() {
-        render eventoService.show(params, response)
     }
 
     def save() {

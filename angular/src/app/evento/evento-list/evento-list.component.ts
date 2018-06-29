@@ -117,4 +117,12 @@ export class EventoListComponent implements OnInit {
     return true;
   }
   
+  public pesquisa(termoDaPesquisa: string): void{
+    this.userService.getUserByName(termoDaPesquisa)
+    .subscribe(res =>{
+      this.user = res.users;
+      console.log(this.user)
+    })
+    console.log(termoDaPesquisa)
+  }
 }

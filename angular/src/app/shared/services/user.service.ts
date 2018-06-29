@@ -22,6 +22,10 @@ export class UserService{
     public getUsers(): Observable<UsersLisRes>{
         return this.$http.get<UsersLisRes>(this.baseUrl+`/user`)
     }
+
+    public getUserByName(termoPesquisa: string): Observable<UsersLisRes>{
+        return this.$http.get<UsersLisRes>(this.baseUrl+`/user/`+termoPesquisa)
+    }
     /*
     public saveEvento(evento: Evento): Observable<Evento>{
         return this.$http.post<Evento>(this.baseUrl+'/evento/',evento)
