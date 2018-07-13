@@ -1,0 +1,14 @@
+<div class="container">
+  <nav class="navbar fixed-top navbar-inverse bg-inverse">
+   <div class="row">
+      <div class="col-md-6 col-sm-12">
+          <a class="navbar-brand" routerLink='/home'>
+            <img src="../../../assets/calendarIco.png" width="32" height="32" class="d-inline-block align-top" alt=""> Gerenciador de eventos
+          </a>
+      </div>
+      <div class="col-md-6 col-sm-12 d-flex justify-content-end">
+        <button class="btn btn-sm btn-outline-secondary" type="button" *ngIf="isLoggedIn()" (click)="logout()">Sair</button>
+      </div>
+   </div>
+  </nav>
+</div>

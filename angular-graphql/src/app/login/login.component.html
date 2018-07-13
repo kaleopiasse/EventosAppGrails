@@ -1,0 +1,29 @@
+<body class="text-center">
+  <form class="form-signin" [formGroup]="formulario" novalidate (ngSubmit)="validarLogin()">
+    <img class="mb-4" src="../../../assets/calendarIco.png" alt="" width="96" height="96">
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <small *ngIf="!formulario.get('email').valid && formulario.get('email').touched" class="form-text text-danger">Preencha os campos corretamente</small>
+    <small *ngIf="!formulario.get('senha').valid && formulario.get('senha').touched" class="form-text text-danger">Preencha os campos corretamente</small>
+    <input 
+      type="text" 
+      id="inputEmail" 
+      class="form-control" 
+      placeholder="Email" 
+      formControlName="email"
+    >
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input 
+      type="password" 
+      id="inputPassword" 
+      class="form-control" 
+      placeholder="Senha"
+      formControlName="senha"
+    >
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Lembre-me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+  </form>
+</body>
