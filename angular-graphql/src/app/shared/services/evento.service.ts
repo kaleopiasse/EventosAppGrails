@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 import {Evento} from '../models/evento.model'
 import { environment } from 'environments/environment';
 import { Apollo } from 'apollo-angular';
-import { ALL_EVENTOS_QUERY, AllEventosQueryResponse, AddEvento, ADD_EVENTO } from './../graphql/graphql';
+import { ALL_EVENTOS_QUERY, AllEventosQueryResponse, IEvento, ADD_EVENTO, SEARCH_EVENTO, UPDATE_EVENTO, DELETE_EVENTO } from './../graphql/graphql';
 import { responsePathAsArray } from 'graphql';
 import { resultKeyNameFromField } from 'apollo-utilities';
 
@@ -33,9 +33,34 @@ export class EventoService {
 
     public gqlCreateEvento(evento: Evento): Observable<any> {
       return this.apollo
-      .mutate<AddEvento>({
+      .mutate<IEvento>({
         mutation: ADD_EVENTO,
-        variables: {}
+        variables: {evento}
+      })
+    }
+
+    public gqlSearchEventoById(id: number): Observable <any> {
+      return this.apollo
+      .query<IEvento>({
+        query: SEARCH_EVENTO,
+        variables: {id}
+      })
+      .map(result => result.data);
+    }
+
+    public gqlUpdateEvento(id: number, evento: Evento): Observable<any> {
+      return this.apollo
+      .mutate<IEvento>({
+        mutation: UPDATE_EVENTO,
+        variables: {id, evento}
+      })
+    }
+
+    public gqlDeleteEvento(id: number): Observable<any> {
+      return this.apollo
+      .mutate({
+        mutation: DELETE_EVENTO,
+        variables: {id}
       })
     }
 

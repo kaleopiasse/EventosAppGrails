@@ -59,6 +59,7 @@ export class EventoListComponent implements OnInit {
     }
   }
 
+  /*
   public convidarUsuario(user: User) {
     if (user.selected === true) {
       user.selected = false
@@ -67,6 +68,7 @@ export class EventoListComponent implements OnInit {
     }
     console.log(user);
   }
+  */
 
   debug(userId: number, eventoId: number) {
 

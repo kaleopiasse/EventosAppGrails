@@ -26,10 +26,39 @@ export const ADD_EVENTO = gql `
   }
 `;
 
+export const UPDATE_EVENTO = gql `
+  mutation updateEvento($id: Long!, $evento: EventoUpdate){
+    eventoUpdate(id: $id, evento: $evento){
+      id
+    }
+  }
+`;
+
+export const DELETE_EVENTO = gql `
+  mutation deleteEvento($id: Long!){
+    eventoDelete(id: $id){
+      sucess
+    }
+  }
+`;
+
+export const SEARCH_EVENTO = gql `
+  query evento($id: Long!){
+	    evento(id: $id){
+		  id
+		  titulo
+		  data
+		  horaInicio
+		  horaFim
+		  descricao
+	  }
+  }
+`
+
 export interface AllEventosQueryResponse {
   eventoList: Evento[];
 }
 
-export interface AddEvento {
+export interface IEvento {
   evento: Evento;
 }

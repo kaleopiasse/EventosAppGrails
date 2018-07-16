@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable'
 import { Router } from '@angular/router';
 import { parse } from 'path';
+import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'app-evento',
@@ -50,7 +51,7 @@ export class EventoComponent implements OnInit {
   }
 
   public salvarEvento(): void {
-    const user: User(this.authUser.id, this.authUser.username)
+    const user: User = new User (this.authUser.id, this.authUser.username)
 
     if (this.formulario.status === 'INVALID') {
       this.formulario.get('titulo').markAsTouched()
@@ -81,19 +82,20 @@ export class EventoComponent implements OnInit {
   }
 
   public atualizarEvento() {
+    const user: User = new User (this.authUser.id, this.authUser.username)
     const evento: Evento = new Evento(
       this.formulario.value.titulo,
       this.formulario.value.data,
       this.formulario.value.horaInicio,
       this.formulario.value.horaFim,
-      this.formulario.value.descricao
+      this.formulario.value.descricao,
+      user
     )
-    evento.user.id = parseInt(this.id)
-    evento.data = this.formDate()
+    // evento.data = this.formDate()
     console.log('Atualizar evento')
     console.log(evento)
 
-    this.eventoService.updateEvento(evento)
+    this.eventoService.gqlUpdateEvento((parseInt(this.id)), evento)
     .subscribe(res => {
       console.log(res)
       this.feedbackUser('Evento atualizado com sucesso !!!')
@@ -102,17 +104,17 @@ export class EventoComponent implements OnInit {
   }
 
   public preencherEvento() {
-    console.log('Preenchendo dados evento')
-    this.eventoService.getEventoById(parseInt(this.id))
-      .subscribe((evento: Evento) => {
-        this.formulario.setValue({
-          titulo: evento['titulo'],
-          data: evento['data'],
-          horaInicio: evento['horaInicio'],
-          horaFim: evento['horaFim'],
-          descricao: evento['descricao']
-        })
+    console.log('Preenchendo dados evento', this.id)
+    this.eventoService.gqlSearchEventoById(parseInt(this.id))
+    .subscribe((res) => {
+      this.formulario.setValue({
+        titulo: res.evento['titulo'],
+        data: res.evento['data'],
+        horaInicio: res.evento['horaInicio'],
+        horaFim: res.evento['horaFim'],
+        descricao: res.evento['descricao']
       })
+    })
   }
 
   public deletarEvento() {
